@@ -151,7 +151,7 @@
                 </div> -->
                 <!-- /post -->
 
-                
+
             </div>
             <!-- /row -->
 
@@ -213,7 +213,7 @@
             <!-- /row -->
 
             <!-- row -->
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-8">
                     <div class="row" id="posts">
                         <!-- post -->
@@ -232,7 +232,7 @@
                         <!-- /post -->
 
                         <!-- post -->
-                       <!--  <div class="col-md-6">
+                        <!--  <div class="col-md-6">
                             <div class="post">
                                 <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
                                 <div class="post-body">
@@ -247,7 +247,7 @@
                         <!-- /post -->
 
                         <!-- post -->
-                    <!--     <div class="col-md-6">
+                        <!--     <div class="col-md-6">
                             <div class="post">
                                 <a class="post-img" href="blog-post.html"><img src="./img/post-2.jpg" alt=""></a>
                                 <div class="post-body">
@@ -261,9 +261,9 @@
                         </div> -->
                         <!-- /post -->
 
-                       <!--  <div class="clearfix visible-md visible-lg"></div>
+                        <!--  <div class="clearfix visible-md visible-lg"></div>
  -->
-                        
+
                     </div>
                 </div>
 
@@ -274,7 +274,7 @@
                             <h2>Most Read</h2>
                         </div>
 
-                       
+
 
 
                     </div>
@@ -285,7 +285,7 @@
                         <div class="section-title">
                             <h2>Featured Posts</h2>
                         </div>
-<!-- 
+                        <!-- 
                         <div class="post post-thumb">
                             <a class="post-img" href="blog-post.html"><img src="./img/post-1.jpg" alt=""></a>
                             <div class="post-body">
@@ -306,10 +306,10 @@
                         </div>
                         <div class="category-widget">
                             <ul>
-                                <li><a href="#" class="cat-1">Tư Vấn Tuyển Sinh<span>340</span></a></li>
-                                <li><a href="#" class="cat-2">Chào Đón Tân Sinh Viên<span>74</span></a></li>
-                                <li><a href="#" class="cat-4">Giao Lưu<span>41</span></a></li>
-                                <li><a href="#" class="cat-3">Hội Trại<span>35</span></a></li>
+                                <li><a href="#" class="cat-1">Tư Vấn Tuyển Sinh<span id="count_tvts">0</span></a></li>
+                                <li><a href="#" class="cat-2">Chào Đón Tân Sinh Viên<span id="count_chaotsv">0</span></a></li>
+                                <li><a href="#" class="cat-4">Giao Lưu<span id="count_giaoluu">0</span></a></li>
+                                <li><a href="#" class="cat-3">Hội Trại<span id="count_trai">0</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -414,122 +414,224 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/main.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var data = [{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Tư Vấn Tuyển Sinh"},{"title" : "Hoi Trai 2018","content":"Di chơi 2018", "category" : "Hội Trại"}];
-        // var req = $.ajax({
-        //                 type: 'POST',
-        //                 url: $('#server_url').val() + 'gettoken',
-        //                 data: JSON.stringify(data_gettoken),
-        //                 contentType: 'application/json',
-        //                 success: function(data) {
+            var data = [{
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Tư Vấn Tuyển Sinh"
+            }, {
+                "title": "Hoi Trai 2018",
+                "content": "Di chơi 2018",
+                "category": "Hội Trại"
+            }];
+
             //start featued posts
             // $("#blogpost").html(data.title);
             var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>';
 
-            var data2 = [{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Tư Vấn Tuyển Sinh"},{"title" : "Hoi Trai 2018","content":"Di chơi 2018", "category" : "Hội Trại"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Giao Lưu"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Chào Đón Tân Sinh Viên"} ]
+            // var data2 = [{
+            //     "title": "Hoi Trai 2019",
+            //     "content": "Di chơi",
+            //     "category": "Tư Vấn Tuyển Sinh"
+            // }, {
+            //     "title": "Hoi Trai 2018",
+            //     "content": "Di chơi 2018",
+            //     "category": "Hội Trại"
+            // }, {
+            //     "title": "Hoi Trai 2019",
+            //     "content": "Di chơi",
+            //     "category": "Giao Lưu"
+            // }, {
+            //     "title": "Hoi Trai 2019",
+            //     "content": "Di chơi",
+            //     "category": "Chào Đón Tân Sinh Viên"
+            // }]
 
             var flag = true;
 
-            var code_html2 = '<div class=\"col-md-12\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3</div></div</div>' 
+            var code_html2 = '<div class=\"col-md-12\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3</div></div</div>'
 
             var code_html3 = '<div class=\"col-md-6\"><div class=\"post\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-1.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div></div>'
 
-            var data3 = [{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Tư Vấn Tuyển Sinh"},{"title" : "Hoi Trai 2018","content":"Di chơi 2018", "category" : "Hội Trại"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Giao Lưu"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Chào Đón Tân Sinh Viên"} ]
+            var data3 = [{
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Tư Vấn Tuyển Sinh"
+            }, {
+                "title": "Hoi Trai 2018",
+                "content": "Di chơi 2018",
+                "category": "Hội Trại"
+            }, {
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Giao Lưu"
+            }, {
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Chào Đón Tân Sinh Viên"
+            }]
 
             var code_htmlfirstposts = '<div class=\"col-md-6\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-1.jpg\" ></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div></div>'
 
-            var data4 = [{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Tư Vấn Tuyển Sinh"},{"title" : "Hoi Trai 2018","content":"Di chơi 2018", "category" : "Hội Trại"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Giao Lưu"},{"title" : "Hoi Trai 2019","content":"Di chơi", "category" : "Chào Đón Tân Sinh Viên"} ] 
+            var data4 = [{
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Tư Vấn Tuyển Sinh"
+            }, {
+                "title": "Hoi Trai 2018",
+                "content": "Di chơi 2018",
+                "category": "Hội Trại"
+            }, {
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Giao Lưu"
+            }, {
+                "title": "Hoi Trai 2019",
+                "content": "Di chơi",
+                "category": "Chào Đón Tân Sinh Viên"
+            }]
 
             var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/widget-1.jpg\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>'
 
-            for(dt of data){
-                if(dt.category == "Tư Vấn Tuyển Sinh"){
-                    $("#featured_posts").append(code_html.replace("{style}","cat-1").replace("{0}",dt.category).replace("{1}",dt.title))
-                    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'https://hdhquangnam-vnuhcm.herokuapp.com/api/posts/list',
+                // data: JSON.stringify(data_gettoken),
+                contentType: 'application/json',
+                success: function(data2) {
+                    for (dt2 of data2) {
+                        if (flag) {
+                            if (dt2.category == "Tư Vấn Tuyển Sinh") {
+                                $("#posts").append(code_html2.replace("{style}", "cat-1").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            } else if (dt2.category == "Hội Trại") {
+                                $("#posts").append(code_html2.replace("{style}", "cat-3").replace("{0}", dt2.category).replace("{1}", dt2.title))
+
+                            } else if (dt2.category == "Giao Lưu") {
+                                $("#posts").append(code_html2.replace("{style}", "cat-4").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            } else if (dt2.category == "Chào Đón Tân Sinh Viên") {
+                                $("#posts").append(code_html2.replace("{style}", "cat-2").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            }
+                            flag = false;
+                        } else {
+                            if (dt2.category == "Tư Vấn Tuyển Sinh") {
+                                $("#posts").append(code_html3.replace("{style}", "cat-1").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            } else if (dt2.category == "Hội Trại") {
+                                $("#posts").append(code_html3.replace("{style}", "cat-3").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            } else if (dt2.category == "Giao Lưu") {
+                                $("#posts").append(code_html3.replace("{style}", "cat-4").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            } else if (dt2.category == "Chào Đón Tân Sinh Viên") {
+                                $("#posts").append(code_html3.replace("{style}", "cat-2").replace("{0}", dt2.category).replace("{1}", dt2.title))
+                            }
+
+                        }
+                    }
+
+
                 }
-                else if(dt.category == "Hội Trại"){
-                   $("#featured_posts").append(code_html.replace("{style}","cat-3").replace("{0}",dt.category).replace("{1}",dt.title))
-                    
+            });
+
+            //start featured posts    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'https://hdhquangnam-vnuhcm.herokuapp.com/api/posts/featured',
+                // data: JSON.stringify(data_gettoken),
+                contentType: 'application/json',
+                success: function(data) {
+                    var amount_post_right = 0;
+                    var amount_post_top = 0;
+                    //Hien ben phai
+                    for (dt of data) {
+                        amount_post_right = amount_post_right + 1;
+                        if (dt.category == "Tư Vấn Tuyển Sinh") {
+                            $("#featured_posts").append(code_html.replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title))
+
+                        } else if (dt.category == "Hội Trại") {
+                            $("#featured_posts").append(code_html.replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title))
+
+                        } else if (dt.category == "Giao Lưu") {
+                            $("#featured_posts").append(code_html.replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title))
+                        } else if (dt.category == "Chào Đón Tân Sinh Viên") {
+                            $("#featured_posts").append(code_html.replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title))
+                        }
+                        if (amount_post_right == 3) {
+                            break;
+                        }
+                    }
+
+                    //Hien dau trang
+                    for (dt3 of data) {
+                        amount_post_top = amount_post_top + 1;
+                        if (dt3.category == "Tư Vấn Tuyển Sinh") {
+                            $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-1").replace("{0}", dt3.category).replace("{1}", dt3.title))
+
+                        } else if (dt3.category == "Hội Trại") {
+                            $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-3").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        } else if (dt3.category == "Giao Lưu") {
+                            $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-4").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        } else if (dt3.category == "Chào Đón Tân Sinh Viên") {
+                            $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-2").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        }
+                        if (amount_post_top == 2) {
+                            break;
+                        }
+                    }
                 }
-                else if(dt.category == "Giao Lưu"){
-                     $("#featured_posts").append(code_html.replace("{style}","cat-4").replace("{0}",dt.category).replace("{1}",dt.title))
-                }
-                else if(dt.category == "Chào Đón Tân Sinh Viên"){
-                     $("#featured_posts").append(code_html.replace("{style}","cat-2").replace("{0}",dt.category).replace("{1}",dt.title))
-                }
-            }
+            });
+
+
             //end featured posts               
-                        // }
-                    // });
-            for ( dt2 of data2){
-                if(flag){
-                    if(dt2.category == "Tư Vấn Tuyển Sinh"){
-                        $("#posts").append(code_html2.replace("{style}","cat-1").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                    }
-                    else if(dt2.category == "Hội Trại"){
-                   $("#posts").append(code_html2.replace("{style}","cat-3").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                    
-                }
-                else if(dt2.category == "Giao Lưu"){
-                     $("#posts").append(code_html2.replace("{style}","cat-4").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                }
-                else if(dt2.category == "Chào Đón Tân Sinh Viên"){
-                     $("#posts").append(code_html2.replace("{style}","cat-2").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                }
-                    flag = false;
-                }
-                
-                
-                else {
-                    if(dt2.category == "Tư Vấn Tuyển Sinh"){
-                        $("#posts").append(code_html3.replace("{style}","cat-1").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                    }
-                     else if(dt2.category == "Hội Trại"){
-                   $("#posts").append(code_html3.replace("{style}","cat-3").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                    
-                }
-                else if(dt2.category == "Giao Lưu"){
-                     $("#posts").append(code_html3.replace("{style}","cat-4").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                }
-                else if(dt2.category == "Chào Đón Tân Sinh Viên"){
-                     $("#posts").append(code_html3.replace("{style}","cat-2").replace("{0}",dt2.category).replace("{1}",dt2.title))
-                }
 
-                }
+            //start most read    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'https://hdhquangnam-vnuhcm.herokuapp.com/api/posts/mostread/4',
+                // data: JSON.stringify(data_gettoken),
+                contentType: 'application/json',
+                success: function(data4) {
+                    var amount_most_read = 0;
+                    for (dt4 of data4) {
+                        if (dt4.category == "Tư Vấn Tuyển Sinh") {
+                            $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+                        } else if (dt4.category == "Hội Trại") {
+                            $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+                        } else if (dt4.category == "Giao Lưu") {
+                            $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+                        } else if (dt4.category == "Chào Đón Tân Sinh Viên") {
+                            $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+                        }
+                        if (amount_most_read == 4) {
+                            break;
+                        }
                     }
+                }
+            });
+            //end most read
 
-            for(dt3 of data3){
-                if(dt3.category == "Tư Vấn Tuyển Sinh"){
-                    $("#firstposts").append(code_htmlfirstposts.replace("{style}","cat-1").replace("{0}",dt3.category).replace("{1}",dt3.title))
-                    
+            //start count posts    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'https://hdhquangnam-vnuhcm.herokuapp.com/api/posts/countposts/',
+                // data: JSON.stringify(data_gettoken),
+                contentType: 'application/json',
+                success: function(data) {
+                    for (dt of data) {
+                        if (dt.category == "Tư Vấn Tuyển Sinh") {
+                            $("#count_tvts").html(dt.count);
+                        } else if (dt.category == "Hội Trại") {
+                            $("#count_trai").html(dt.count);
+                        } else if (dt.category == "Giao Lưu") {
+                            $("#count_giaoluu").html(dt.count);
+                        } else if (dt.category == "Chào Đón Tân Sinh Viên") {
+                            $("#count_chaotsv").html(dt.count);
+                        }
+                    }
                 }
-                else if(dt3.category == "Hội Trại"){
-                   $("#firstposts").append(code_htmlfirstposts.replace("{style}","cat-3").replace("{0}",dt3.category).replace("{1}",dt3.title))
-                    
-                }
-                
-            }
-            for(dt4 of data4){
-                if(dt4.category == "Tư Vấn Tuyển Sinh"){
-                    $("#mostread").append(code_htmlmostread.replace("{1}",dt4.title))
-                    
-                }
-                else if(dt4.category == "Hội Trại"){
-                   $("#mostread").append(code_htmlmostread.replace("{1}",dt4.title))
-                    
-                }
-                else if(dt4.category == "Giao Lưu"){
-                     $("#mostread").append(code_htmlmostread.replace("{1}",dt4.title))
-                }
-                else if(dt4.category == "Chào Đón Tân Sinh Viên"){
-                     $("#mostread").append(code_htmlmostread.replace("{1}",dt4.title))
-                }
-            }
-    });
+            });
+            //end count posts    
+
+
+
+        });
     </script>
-
-    <!-- start posts -->
-    
-    <!-- end posts -->
 </body>
 
 </html>
