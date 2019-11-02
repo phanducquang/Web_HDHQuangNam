@@ -50,10 +50,10 @@
                     <!-- nav -->
                     <ul class="nav-menu nav navbar-nav">
                         <li><a href="category.html">Tin Tức</a></li>
-                        <li class="cat-1"><a href="category.html">Tư Vấn Tuyển Sinh</a></li>
-                        <li class="cat-2"><a href="category.html">Chào Đón Tân Sinh Viên</a></li>
-                        <li class="cat-3"><a href="category.html">Giao Lưu</a></li>
-                        <li class="cat-4"><a href="category.html">Hội Trại</a></li>
+                        <li class="cat-1"><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                        <li class="cat-2"><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                        <li class="cat-3"><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                        <li class="cat-4"><a href="category.html?category=hoitrai">Hội Trại</a></li>
                     </ul>
                     <!-- /nav -->
 
@@ -77,10 +77,10 @@
                 <div class="section-row">
                     <ul class="nav-aside-menu">
                         <li><a href="index.html">Trang Chủ</a></li>
-                        <li><a href="about.html">Tư Vấn Tuyển Sinh</a></li>
-                        <li><a href="#">Chào Đón Tân Sinh Viên</a></li>
-                        <li><a href="#">Giao Lưu</a></li>
-                        <li><a href="contact.html">Hội Trại</a></li>
+                        <li><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                        <li><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                        <li><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                        <li><a href="category.html?category=hoitrai">Hội Trại</a></li>
                     </ul>
                 </div>
                 <!-- /nav -->
@@ -307,10 +307,10 @@
                         </div>
                         <div class="category-widget">
                             <ul>
-                                <li><a href="#" class="cat-1">Tư Vấn Tuyển Sinh<span id="count_tvts">0</span></a></li>
-                                <li><a href="#" class="cat-2">Chào Đón Tân Sinh Viên<span id="count_chaotsv">0</span></a></li>
-                                <li><a href="#" class="cat-4">Giao Lưu<span id="count_giaoluu">0</span></a></li>
-                                <li><a href="#" class="cat-3">Hội Trại<span id="count_trai">0</span></a></li>
+                                <li><a href="category.html?category=tvts" class="cat-1">Tư Vấn Tuyển Sinh<span id="count_tvts">0</span></a></li>
+                                <li><a href="category.html?category=cdtsv" class="cat-2">Chào Đón Tân Sinh Viên<span id="count_chaotsv">0</span></a></li>
+                                <li><a href="category.html?category=giaoluu" class="cat-4">Giao Lưu<span id="count_giaoluu">0</span></a></li>
+                                <li><a href="category.html?category=hoitrai" class="cat-3">Hội Trại<span id="count_trai">0</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -382,10 +382,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <div class="footer-widget">
                         <h3 class="footer-title">PHÂN LOẠI</h3>
                         <ul class="footer-links">
-                            <li><a href="category.html">Tư Vấn Tuyển Sinh</a></li>
-                            <li><a href="category.html">Chào Đón Tân Sinh Viên</a></li>
-                            <li><a href="category.html">Giao Lưu</a></li>
-                            <li><a href="category.html">Hội Trại</a></li>
+                            <li><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                            <li><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                            <li><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                            <li><a href="category.html?category=hoitrai">Hội Trại</a></li>
                         </ul>
                     </div>
                 </div>
@@ -420,6 +420,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         var code_html3 = '<div class=\"col-md-6\"><div class=\"post\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-1.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div></div>'
         var code_htmlfirstposts = '<div class=\"col-md-6\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-1.jpg\" ></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div></div>'
         var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/widget-1.jpg\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>'
+
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+             }
+            };
+
+        var category = getUrlParameter('category');
+
+
 
         var req = $.ajax({
             type: 'GET',

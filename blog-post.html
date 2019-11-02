@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="./img/rsz_1logohoi.png">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Chào Đón Tân Sinh Viên</title>
+    <title id="pageTitle"></title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
@@ -50,10 +50,10 @@
                     <ul class="nav-menu nav navbar-nav">
                         <!-- <li><a href="category.html">News</a></li>
 							<li><a href="category.html">Popular</a></li> -->
-                        <li class="cat-1"><a href="category.html">Tư Vấn Tuyển Sinh</a></li>
-                        <li class="cat-2"><a href="category.html">Chào Đón Tân Sinh Viên</a></li>
-                        <li class="cat-3"><a href="category.html">Giao Lưu</a></li>
-                        <li class="cat-4"><a href="category.html">Hội Trại</a></li>
+                        <li class="cat-1 active"><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                        <li class="cat-2"><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                        <li class="cat-3"><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                        <li class="cat-4"><a href="category.html?category=hoitrai">Hội Trại</a></li>
                     </ul>
                     <!-- /nav -->
 
@@ -76,10 +76,10 @@
                 <div class="section-row">
                     <ul class="nav-aside-menu">
                         <li><a href="index.html">Trang Chủ</a></li>
-                        <li><a href="about.html">Tư Vấn Tuyển Sinh</a></li>
-                        <li><a href="#">Chào Đón Tân Sinh Viên</a></li>
-                        <li><a href="#">Giao Lưu</a></li>
-                        <li><a href="contact.html">Hội Trại</a></li>
+                        <li><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                        <li><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                        <li><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                        <li><a href="category.html?category=hoitrai">Hội Trại</a></li>
                     </ul>
                 </div>
                 <!-- /nav -->
@@ -135,7 +135,7 @@
                 <div class="row">
                     <div class="col-md-10">
                         <div class="post-meta">
-                            <a class="post-category cat-2" href="category.html" id="blogpostcategory"></a>
+                            <a class="post-category" href="category.html" id="blogpostcategory"></a>
                             <span class="post-date">March 27, 2018</span>
                         </div>
                         <h1 id="blogposttitle"></h1>
@@ -163,15 +163,15 @@
                     </div>
 
                     <!-- ad -->
-                    <div class="section-row text-center">
+                    <!-- <div class="section-row text-center">
                         <a href="#" style="display: inline-block;margin: auto;">
                             <img class="img-responsive" src="./img/ad-2.jpg" alt="">
                         </a>
-                    </div>
+                    </div> -->
                     <!-- ad -->
 
                     <!-- author -->
-                    <div class="section-row">
+                    <!-- <div class="section-row">
                         <div class="post-author">
                             <div class="media">
                                 <div class="media-left">
@@ -182,28 +182,28 @@
                                         <h3>John Doe</h3>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.</p>
+                                        consequat.</p> -->
                                     <!-- <ul class="author-social">
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 											<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 											<li><a href="#"><i class="fa fa-instagram"></i></a></li>
 										</ul> -->
-                                </div>
+                    <!--             </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /author -->
 
                     <!-- comments -->
-                    <div class="section-row">
+                    <!-- <div class="section-row">
                         <div class="section-title">
                             <h2>3 Comments</h2>
                         </div>
 
-                        <div class="post-comments">
+                        <div class="post-comments"> -->
                             <!-- comment -->
-                            <div class="media">
+                            <!-- <div class="media">
                                 <div class="media-left">
                                     <img class="media-object" src="./img/avatar.png" alt="">
                                 </div>
@@ -215,9 +215,9 @@
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                         consequat.</p>
-
+ -->
                                     <!-- comment -->
-                                    <div class="media">
+                                    <!-- <div class="media">
                                         <div class="media-left">
                                             <img class="media-object" src="./img/avatar.png" alt="">
                                         </div>
@@ -230,14 +230,14 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                                                 ex ea commodo consequat.</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- /comment -->
-                                </div>
-                            </div>
+                           <!--      </div>
+                            </div> -->
                             <!-- /comment -->
 
                             <!-- comment -->
-                            <div class="media">
+                            <!-- <div class="media">
                                 <div class="media-left">
                                     <img class="media-object" src="./img/avatar.png" alt="">
                                 </div>
@@ -250,19 +250,19 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                         consequat.</p>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- /comment -->
-                        </div>
-                    </div>
+                 <!--        </div>
+                    </div> -->
                     <!-- /comments -->
 
                     <!-- reply -->
-                    <div class="section-row">
-                        <div class="section-title">
+                    <!-- <div class="section-row"> -->
+                        <!-- <div class="section-title">
                             <h2>Leave a reply</h2>
                             <p>your email address will not be published. required fields are marked *</p>
-                        </div>
-                        <form class="post-reply">
+                        </div> -->
+                        <!-- <form class="post-reply">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -289,8 +289,8 @@
                                     <button class="primary-button">Submit</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </form> -->
+                    <!-- </div> -->
                     <!-- /reply -->
                 </div>
                 <!-- /Post content -->
@@ -298,11 +298,11 @@
                 <!-- aside -->
                 <div class="col-md-4">
                     <!-- ad -->
-                    <div class="aside-widget text-center">
+                    <!-- <div class="aside-widget text-center">
                         <a href="#" style="display: inline-block;margin: auto;">
                             <img class="img-responsive" src="./img/ad-1.jpg" alt="">
                         </a>
-                    </div>
+                    </div> -->
                     <!-- /ad -->
 
                     <!-- post widget -->
@@ -331,10 +331,10 @@
                             </div>
                             <div class="category-widget">
                                 <ul>
-                                    <li><a href="#" class="cat-1">Tư Vấn Tuyển Sinh<span>340</span></a></li>
-                                    <li><a href="#" class="cat-2">Chào Đón Tân Sinh Viên<span>74</span></a></li>
-                                    <li><a href="#" class="cat-4">Giao Lưu<span>41</span></a></li>
-                                    <li><a href="#" class="cat-3">Hội Trại<span>35</span></a></li>
+                                    <li><a href="category.html?category=tvts" class="cat-1">Tư Vấn Tuyển Sinh<span id="count_tvts">0</span></a></li>
+                                    <li><a href="category.html?category=cdtsv" class="cat-2">Chào Đón Tân Sinh Viên<span id="count_chaotsv">0</span></a></li>
+                                    <li><a href="category.html?category=giaoluu" class="cat-4">Giao Lưu<span id="count_giaoluu">0</span></a></li>
+                                    <li><a href="category.html?category=hoitrai" class="cat-3">Hội Trại<span id="count_trai">0</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -393,10 +393,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <div class="footer-widget">
                             <h3 class="footer-title">PHÂN LOẠI</h3>
                             <ul class="footer-links">
-                                <li><a href="category.html">Tư Vấn Tuyển Sinh</a></li>
-                                <li><a href="category.html">Chào Đón Tân Sinh Viên</a></li>
-                                <li><a href="category.html">Giao Lưu</a></li>
-                                <li><a href="category.html">Hội Trại</a></li>
+                                <li><a href="category.html?category=tvts">Tư Vấn Tuyển Sinh</a></li>
+                                <li><a href="category.html?category=cdtsv">Chào Đón Tân Sinh Viên</a></li>
+                                <li><a href="category.html?category=giaoluu">Giao Lưu</a></li>
+                                <li><a href="category.html?category=hoitrai">Hội Trại</a></li>
                             </ul>
                         </div>
                     </div>
@@ -425,88 +425,248 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
 
-                var obData = {
-                    "title": "Hoi Trai 2019",
-                    "content": "<h3>Lorem Ipsum: when, and when not to use it</h3><p>Do you like Cheese Whiz?. </p><p>The toppings you consideration.</p><figure class=\"figure-img\"><img class=\"img-responsive\" src=\"./img/post-4.jpg\" ><figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption></figure>",
-                    "category": "Tư Vấn Tuyển Sinh"
+            $(document).ready(function(){
+                
+            })
+
+            function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
                 }
+             }
+            };
 
-                var data = [{
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Tư Vấn Tuyển Sinh"
-                }, {
-                    "title": "Hoi Trai 2018",
-                    "content": "Di chơi 2018",
-                    "category": "Hội Trại"
-                }, {
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Giao Lưu"
-                }, {
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Chào Đón Tân Sinh Viên"
-                }]
+            //console.log(getUrlParameter('id'));
+            var id =  getUrlParameter('id');
 
-                $("#blogpostcategory").append(obData.category);
-                $("#blogposttitle").append(obData.title);
-                $("#blogpostcontent").append(obData.content);
-
-                var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>';
-
-                var data4 = [{
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Tư Vấn Tuyển Sinh"
-                }, {
-                    "title": "Hoi Trai 2018",
-                    "content": "Di chơi 2018",
-                    "category": "Hội Trại"
-                }, {
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Giao Lưu"
-                }, {
-                    "title": "Hoi Trai 2019",
-                    "content": "Di chơi",
-                    "category": "Chào Đón Tân Sinh Viên"
-                }]
-
-                var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/widget-1.jpg\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>'
-
-                for (dt of data) {
-                    if (dt.category == "Tư Vấn Tuyển Sinh") {
-                        $("#featured_posts").append(code_html.replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title))
-
-                    } else if (dt.category == "Hội Trại") {
-                        $("#featured_posts").append(code_html.replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title))
-
-                    } else if (dt.category == "Giao Lưu") {
-                        $("#featured_posts").append(code_html.replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title))
-                    } else if (dt.category == "Chào Đón Tân Sinh Viên") {
-                        $("#featured_posts").append(code_html.replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title))
-                    }
-                }
+            var req = $.ajax({
+            type: 'GET',
+            url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/one/'+ id,
+            contentType: 'application/json',
+            success: function(data) {
+                $(document).ready(function()
+                {
+                        $("#blogpostcategory").append(data.category);
+                        $("#blogposttitle").append(data.title);
+                        $("#blogpostcontent").append(data.content);
+                        if(data.category == "Tư Vấn Tuyển Sinh"){
+                           $("#pageTitle").append("Tư Vấn Tuyển Sinh");
+                           $("#blogpostcategory").addClass("cat-1");
+                        }
+                        if(data.category == "Hội Trại"){
+                            $("#pageTitle").append("Hội Trại");
+                            $("#blogpostcategory").addClass("cat-3");
+                        }
+                        if(data.category == "Giao Lưu"){  
+                            $("#pageTitle").append("Giao Lưu");
+                            $("#blogpostcategory").addClass("cat-4");
+                        }
+                        if(data.category == "Chào Đón Tân Sinh Viên"){
+                            $("#pageTitle").append("Chào Đón Tân Sinh Viên");
+                            $("#blogpostcategory").addClass("cat-2");
+                        }
+                  }
+                )}
+            });
 
 
+            var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/widget-1.jpg\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>'
 
-                for (dt4 of data4) {
-                    if (dt4.category == "Tư Vấn Tuyển Sinh") {
-                        $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
-
-                    } else if (dt4.category == "Hội Trại") {
-                        $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
-
-                    } else if (dt4.category == "Giao Lưu") {
-                        $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
-                    } else if (dt4.category == "Chào Đón Tân Sinh Viên") {
-                        $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
-                    }
+            //start most read    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/mostread/4',
+                contentType: 'application/json',
+                success: function(data2) {
+                    $(document).ready(function() {
+                        var amount_most_read = 0;
+                        for (dt2 of data2) {
+                            if (dt2.category == "Tư Vấn Tuyển Sinh") {
+                                $("#mostread").append(code_htmlmostread.replace("{1}", dt2.title))
+                            } else if (dt2.category == "Hội Trại") {
+                                $("#mostread").append(code_htmlmostread.replace("{1}", dt2.title))
+                            } else if (dt2.category == "Giao Lưu") {
+                                $("#mostread").append(code_htmlmostread.replace("{1}", dt2.title))
+                            } else if (dt2.category == "Chào Đón Tân Sinh Viên") {
+                                $("#mostread").append(code_htmlmostread.replace("{1}", dt2.title))
+                            }
+                            if (amount_most_read == 4) {
+                                break;
+                            }
+                        }
+                    })
                 }
             });
+            //end most read
+
+            var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>';
+
+                    //start featured posts    
+            var req = $.ajax({
+                type: 'GET',
+                url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/featured',
+                contentType: 'application/json',
+                success: function(data3) {
+                    $(document).ready(function() {
+                        var amount_post_right = 0;
+                        //Hien ben phai
+                        for (dt3 of data3) {
+                            amount_post_right = amount_post_right + 1;
+                            if (dt3.category == "Tư Vấn Tuyển Sinh") {
+                                $("#featured_posts").append(code_html.replace("{style}", "cat-1").replace("{0}", dt3.category).replace("{1}", dt.title))
+
+                            } else if (dt3.category == "Hội Trại") {
+                                $("#featured_posts").append(code_html.replace("{style}", "cat-3").replace("{0}", dt3.category).replace("{1}", dt3.title))
+
+                            } else if (dt3.category == "Giao Lưu") {
+                                $("#featured_posts").append(code_html.replace("{style}", "cat-4").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                            } else if (dt3.category == "Chào Đón Tân Sinh Viên") {
+                                $("#featured_posts").append(code_html.replace("{style}", "cat-2").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                            }
+                            if (amount_post_right == 3) {
+                                break;
+                            }
+                        }
+
+                        //Hien dau trang
+                        // for (dt3 of data) {
+                        //     amount_post_top = amount_post_top + 1;
+                        //     if (dt3.category == "Tư Vấn Tuyển Sinh") {
+                        //         $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-1").replace("{0}", dt3.category).replace("{1}", dt3.title))
+
+                        //     } else if (dt3.category == "Hội Trại") {
+                        //         $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-3").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        //     } else if (dt3.category == "Giao Lưu") {
+                        //         $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-4").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        //     } else if (dt3.category == "Chào Đón Tân Sinh Viên") {
+                        //         $("#firstposts").append(code_htmlfirstposts.replace("{style}", "cat-2").replace("{0}", dt3.category).replace("{1}", dt3.title))
+                        //     }
+                        //     if (amount_post_top == 2) {
+                        //         break;
+                        //     }
+                        // }
+                    })
+                }
+            });
+            //end featured posts 
+
+
+        //start count posts    
+                var req = $.ajax({
+                    type: 'GET',
+                    url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/countposts/',
+                    contentType: 'application/json',
+                    success: function(data4) {
+                        $(document).ready(function() {
+                            for (dt4 of data4) {
+                                if (dt4.category == "Tư Vấn Tuyển Sinh") {
+                                    $("#count_tvts").html(dt4.count);
+                                } else if (dt4.category == "Hội Trại") {
+                                    $("#count_trai").html(dt4.count);
+                                } else if (dt4.category == "Giao Lưu") {
+                                    $("#count_giaoluu").html(dt4.count);
+                                } else if (dt4.category == "Chào Đón Tân Sinh Viên") {
+                                    $("#count_chaotsv").html(dt4.count);
+                                }
+                            }
+                        })
+                    }
+                });
+                //end count posts
+
+
+
+            // $(document).ready(function() {
+
+            //     var obData = {
+            //         "title": "Hoi Trai 2019",
+            //         "content": "<h3>Lorem Ipsum: when, and when not to use it</h3><p>Do you like Cheese Whiz?. </p><p>The toppings you consideration.</p><figure class=\"figure-img\"><img class=\"img-responsive\" src=\"./img/post-4.jpg\" ><figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption></figure>",
+            //         "category": "Tư Vấn Tuyển Sinh"
+            //     }
+
+            //     var data = [{
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Tư Vấn Tuyển Sinh"
+            //     }, {
+            //         "title": "Hoi Trai 2018",
+            //         "content": "Di chơi 2018",
+            //         "category": "Hội Trại"
+            //     }, {
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Giao Lưu"
+            //     }, {
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Chào Đón Tân Sinh Viên"
+            //     }]
+
+                // $("#blogpostcategory").append(obData.category);
+                // $("#blogposttitle").append(obData.title);
+                // $("#blogpostcontent").append(obData.content);
+
+            //     var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/post-2.jpg\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>';
+
+            //     var data4 = [{
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Tư Vấn Tuyển Sinh"
+            //     }, {
+            //         "title": "Hoi Trai 2018",
+            //         "content": "Di chơi 2018",
+            //         "category": "Hội Trại"
+            //     }, {
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Giao Lưu"
+            //     }, {
+            //         "title": "Hoi Trai 2019",
+            //         "content": "Di chơi",
+            //         "category": "Chào Đón Tân Sinh Viên"
+            //     }]
+
+            //     var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html\"><img src=\"./img/widget-1.jpg\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html\">{1}</a></h3></div></div>'
+
+            //     for (dt of data) {
+            //         if (dt.category == "Tư Vấn Tuyển Sinh") {
+            //             $("#featured_posts").append(code_html.replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title))
+
+            //         } else if (dt.category == "Hội Trại") {
+            //             $("#featured_posts").append(code_html.replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title))
+
+            //         } else if (dt.category == "Giao Lưu") {
+            //             $("#featured_posts").append(code_html.replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title))
+            //         } else if (dt.category == "Chào Đón Tân Sinh Viên") {
+            //             $("#featured_posts").append(code_html.replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title))
+            //         }
+            //     }
+
+
+
+            //     for (dt4 of data4) {
+            //         if (dt4.category == "Tư Vấn Tuyển Sinh") {
+            //             $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+
+            //         } else if (dt4.category == "Hội Trại") {
+            //             $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+
+            //         } else if (dt4.category == "Giao Lưu") {
+            //             $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+            //         } else if (dt4.category == "Chào Đón Tân Sinh Viên") {
+            //             $("#mostread").append(code_htmlmostread.replace("{1}", dt4.title))
+            //         }
+            //     }
+            // });
         </script>
 </body>
 
