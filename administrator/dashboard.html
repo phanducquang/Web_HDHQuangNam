@@ -50,8 +50,8 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="../index.html" class="simple-text">
-                    HĐH QUẢNG NAM
-                </a>
+                        <img src="../img/rsz_4logohoi.png"> HĐH QUẢNG NAM
+                    </a>
                 </div>
 
                 <ul class="nav">
@@ -63,38 +63,14 @@
                     </li>
                     <li>
                         <a href="createpost.html">
-                            <i class="pe-7s-user"></i>
+                            <i class="pe-7s-note"></i>
                             <p>Thêm Bài Viết</p>
                         </a>
                     </li>
                     <li>
-                        <a href="table.html">
-                            <i class="pe-7s-note2"></i>
+                        <a href="listposts.html">
+                            <i class="pe-7s-graph"></i>
                             <p>Danh Sách Bài Viết</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="typography.html">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="icons.html">
-                            <i class="pe-7s-science"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="maps.html">
-                            <i class="pe-7s-map-marker"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="notifications.html">
-                            <i class="pe-7s-bell"></i>
-                            <p>Notifications</p>
                         </a>
                     </li>
                 </ul>
@@ -105,77 +81,23 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                         <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
                     <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-left">
-                            <li>
-                                <a href="dashboard.html" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-dashboard"></i>
-                                    <p class="hidden-lg hidden-md">Dashboard</p>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-                                    <p class="hidden-lg hidden-md">
-                                        5 Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                    <p class="hidden-lg hidden-md">Search</p>
-                                </a>
-                            </li>
-                        </ul>
-
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="">
-                                    <p>Account</p>
-                                </a>
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-                                        Dropdown
-                                        <b class="caret"></b>
+                                    <p id="user-login">
                                     </p>
-
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
+                                    <li><a href="#">Thông tin tài khoản</a></li>
+                                    <li><a href="#">Thay đổi mật khẩu</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">Đăng xuất</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <p>Log out</p>
-                                </a>
-                            </li>
-                            <li class="separator hidden-lg"></li>
+                            <li class="separator hidden-lg hidden-md"></li>
                         </ul>
                     </div>
                 </div>
@@ -382,6 +304,7 @@
                                         <div class="stats">
                                             <i class="fa fa-history"></i> Updated 3 minutes ago
                                         </div>
+                                        <input id="filenhac" class="form-control" type="file" name="files[]" multiple="">
                                     </div>
                                 </div>
                             </div>
@@ -406,7 +329,7 @@
                         &copy;
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> <a href="http://vnu.hdhquangnam.tk">Dev Team HĐH</a>, made with love for a better web
+                        </script> <a href="../index.html">Dev Team HĐH</a>, made with love for a better web
                     </p>
                 </div>
             </footer>
@@ -415,11 +338,20 @@
     </div>
 
 
+
 </body>
 
 <!--   Core JS Files   -->
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/load-image.all.min.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/canvas-to-blob.min.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/jquery.fileupload.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/jquery.fileupload-process.js" type="text/javascript"></script>
+<script src="assets/jqueryupload/js/jquery.fileupload-image.js" type="text/javascript"></script>
+
 
 <!--  Charts Plugin -->
 <script src="assets/js/chartist.min.js"></script>
@@ -438,7 +370,10 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-
+        var user = {
+            "username": "ducquang"
+        }
+        $("#user-login").append(user.username + '<b class="caret"></b>');
         demo.initChartist();
 
         $.notify({
@@ -449,7 +384,17 @@
             type: 'info',
             timer: 4000
         });
-
+        $('#filenhac').fileupload({
+            url: 'http://hdhquangnamvnu.epizy.com/',
+            dataType: 'json',
+            done: function(e, data) {
+                $.each(data.result.files, function(index, file) {
+                    filemusicurl = file.url;
+                    filename = $('input[type=file]').val().split('\\').pop();
+                    console.log(filename);
+                });
+            }
+        });
     });
 </script>
 
