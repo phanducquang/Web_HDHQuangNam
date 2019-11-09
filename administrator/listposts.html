@@ -269,7 +269,7 @@
         //Lấy danh sách bài viết
         $.ajax({
             type: 'GET',
-            url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/list',
+            url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/list',
             contentType: 'application/json',
             success: function(data) {
                 data_temp = data;
@@ -297,7 +297,7 @@
                 $("#loading-add").show();
                 var req = $.ajax({
                         type: 'PUT',
-                        url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/',
+                        url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/',
                         data: JSON.stringify(obj_update),
                         contentType: 'application/json',
                         success: function(data) {
@@ -324,7 +324,7 @@
                 $("#loading-add").show();
                 var req = $.ajax({
                         type: 'DELETE',
-                        url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/' + obj_update.id,
+                        url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/' + obj_update.id,
                         contentType: 'application/json',
                         success: function(data) {
                             $("#loading-add").hide();
