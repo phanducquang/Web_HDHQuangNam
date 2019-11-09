@@ -109,7 +109,7 @@
                     <div class="col-md-10">
                         <div class="post-meta">
                             <a class="post-category" href="category.html" id="blogpostcategory"></a>
-                            <span class="post-date">March 27, 2018</span>
+                            <span class="post-date" id="post-time"></span>
                         </div>
                         <h1 id="blogposttitle"></h1>
                     </div>
@@ -266,6 +266,14 @@
             //console.log(getUrlParameter('id'));
             var id = getUrlParameter('id');
 
+            function parseDate(date){
+            var newYear = date.substr(0,4);
+            var newMonth = date.substr(5,2);
+            var newDay = date.substr(8,2);
+            var newTime = date.substr(11,5)
+            return result = newDay + '/'+ newMonth +'/'+ newYear +','+ newTime;
+            }
+
             var req = $.ajax({
                 type: 'GET',
                 url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/one/' + id,
@@ -275,7 +283,8 @@
                         $(".background-img").attr("style", "background-image: url('{link_thumbnail}');".replace("{link_thumbnail}", data.thumbnail));
                         $("#blogpostcategory").append(data.category);
                         $("#blogposttitle").append(data.title);
-                        $("#blogpostcontent").append(data.content);
+                        $("#blogpostcontent").append(data.content);   
+                        $("#post-time").append(parseDate(data.createdAt));
                         if (data.category == "Tư Vấn Tuyển Sinh") {
                             $("#pageTitle").append("Tư Vấn Tuyển Sinh");
                             $("#blogpostcategory").addClass("cat-1");
@@ -326,7 +335,7 @@
             });
             //end most read
 
-            var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div>';
+            var code_html = '<div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">{date}</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div>';
 
             //start featured posts    
             var req = $.ajax({
@@ -340,15 +349,15 @@
                         for (dt3 of data3) {
                             amount_post_right = amount_post_right + 1;
                             if (dt3.category == "Tư Vấn Tuyển Sinh") {
-                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-1").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail))
+                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-1").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail).replace("{date}", parseDate(dt3.createdAt)))
 
                             } else if (dt3.category == "Hội Trại") {
-                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-3").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail))
+                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-3").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail).replace("{date}", parseDate(dt3.createdAt)))
 
                             } else if (dt3.category == "Giao Lưu") {
-                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-4").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail))
+                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-4").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail).replace("{date}", parseDate(dt3.createdAt)))
                             } else if (dt3.category == "Chào Đón Tân Sinh Viên") {
-                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-2").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail))
+                                $("#featured_posts").append(code_html.replace(/{id}/g, dt3.id).replace("{style}", "cat-2").replace("{0}", dt3.category).replace("{1}", dt3.title).replace("{link_thumbnail}", dt3.thumbnail).replace("{date}", parseDate(dt3.createdAt)))
                             }
                             if (amount_post_right == 3) {
                                 break;

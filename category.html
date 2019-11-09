@@ -327,15 +327,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
-        var code_html2 = '<div class=\"col-md-12\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3</div></div</div>'
+        var code_html2 = '<div class=\"col-md-12\"><div class=\"post post-thumb\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">{date}</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3</div></div</div>'
 
-        var code_html3 = '<div class=\"col-md-6\"><div class=\"post\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div></div>'
+        var code_html3 = '<div class=\"col-md-6\"><div class=\"post\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"category.html\">{0}</a><span class=\"post-date\">{date}</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div></div>'
 
         var flag = true;
 
         var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div>'
 
-        var code_htmlpostlist = '<div class=\"col-md-12\"><div class=\"post post-row\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"#\">{0}</a><span class=\"post-date\">March 27, 2018</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p></div></div></div>'
+        var code_htmlpostlist = '<div class=\"col-md-12\"><div class=\"post post-row\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"#\">{0}</a><span class=\"post-date\">{date}</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p></div></div></div>'
 
         //get category by id
         function getUrlParameter(sParam) {
@@ -354,6 +354,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         };
 
         var category = getUrlParameter('category');
+
+        function parseDate(date){
+            var newYear = date.substr(0,4);
+            var newMonth = date.substr(5,2);
+            var newDay = date.substr(8,2);
+            var newTime = date.substr(11,5)
+            return result = newDay + '/'+ newMonth +'/'+ newYear +','+ newTime;
+        }
 
 
         $(document).ready(function() {
@@ -389,22 +397,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         if (flag) {
                             if (category == "tvts") {
                                 if (dt.category == "Tư Vấn Tuyển Sinh") {
-                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "hoitrai") {
                                 if (dt.category == "Hội Trại") {
-                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "giaoluu") {
                                 if (dt.category == "Giao Lưu") {
-                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "cdtsv") {
                                 if (dt.category == "Chào Đón Tân Sinh Viên") {
-                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html2.replace(/{id}/g, dt.id).replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             }
@@ -422,22 +430,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         } else {
                             if (category == "tvts") {
                                 if (dt.category == "Tư Vấn Tuyển Sinh") {
-                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "hoitrai") {
                                 if (dt.category == "Hội Trại") {
-                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "giaoluu") {
                                 if (dt.category == "Giao Lưu") {
-                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             } else if (category == "cdtsv") {
                                 if (dt.category == "Chào Đón Tân Sinh Viên") {
-                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail))
+                                    $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
                                 }
                             }
