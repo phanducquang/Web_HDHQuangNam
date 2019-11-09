@@ -61,7 +61,7 @@
             //start most read    
             var req = $.ajax({
                 type: 'GET',
-                url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/mostread/4',
+                url: baseUrl+'api/posts/mostread/4',
                 contentType: 'application/json',
                 success: function(data2) {
                     $(document).ready(function() {
@@ -90,7 +90,7 @@
             //start featured posts    
             var req = $.ajax({
                 type: 'GET',
-                url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/featured',
+                url: baseUrl+'api/posts/featured',
                 contentType: 'application/json',
                 success: function(data3) {
                     $(document).ready(function() {
@@ -122,7 +122,7 @@
             //start count posts    
             var req = $.ajax({
                 type: 'GET',
-                url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts/countposts/',
+                url: baseUrl+'api/posts/countposts/',
                 contentType: 'application/json',
                 success: function(data4) {
                     $(document).ready(function() {
