@@ -9,32 +9,6 @@
         var code_htmlpostlist = '<div class=\"col-md-12\"><div class=\"post post-row\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><div class=\"post-meta\"><a class=\"post-category {style}\" href=\"#\">{0}</a><span class=\"post-date\">{date}</span></div><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p></div></div></div>'
 
         var baseUrl = 'https://ducquang.heliohost.org/hdhquangnam-v1/';
-        //get category by id
-        // function getUrlParameter(sParam) {
-        //     var sPageURL = window.location.search.substring(1),
-        //         sURLVariables = sPageURL.split('&'),
-        //         sParameterName,
-        //         i;
-
-        //     for (i = 0; i < sURLVariables.length; i++) {
-        //         sParameterName = sURLVariables[i].split('=');
-
-        //         if (sParameterName[0] === sParam) {
-        //             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        //         }
-        //     }
-        // };
-
-        // var category = getUrlParameter('category');
-
-        // function parseDate(date){
-        //     var newYear = date.substr(0,4);
-        //     var newMonth = date.substr(5,2);
-        //     var newDay = date.substr(8,2);
-        //     var newTime = date.substr(11,5)
-        //     return result = newDay + '/'+ newMonth +'/'+ newYear +','+ newTime;
-        // }
-
 
         $(document).ready(function() {
             if (category == "tvts") {
@@ -65,6 +39,7 @@
             contentType: '',
             success: function(data) {
                 $(document).ready(function() {
+                    var dem_temp = 0;
                     for (dt of data) {
                         if (flag) {
                             if (category == "tvts") {
@@ -88,37 +63,47 @@
                                     flag = false;
                                 }
                             }
-                            // if (dt.category == "Tư Vấn Tuyển Sinh") {
-                            //     $("#posts").append(code_html2.replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title))
-                            // } else if (dt.category == "Hội Trại") {
-                            //     $("#posts").append(code_html2.replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title))
-
-                            // } else if (dt.category == "Giao Lưu") {
-                            //     $("#posts").append(code_html2.replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title))
-                            // } else if (dt.category == "Chào Đón Tân Sinh Viên") {
-                            //     $("#posts").append(code_html2.replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title))
-                            // }
-
                         } else {
+                            dem_temp++;
                             if (category == "tvts") {
                                 if (dt.category == "Tư Vấn Tuyển Sinh") {
                                     $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-1").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
+                                    //Thêm clearfix 2 post chèn 1 clearfix
+                                    if (dem_temp == 2) {
+                                        $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
+                                        dem_temp = 0;
+                                    }
                                 }
                             } else if (category == "hoitrai") {
                                 if (dt.category == "Hội Trại") {
                                     $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-3").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
+                                    //Thêm clearfix 2 post chèn 1 clearfix
+                                    if (dem_temp == 2) {
+                                        $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
+                                        dem_temp = 0;
+                                    }
                                 }
                             } else if (category == "giaoluu") {
                                 if (dt.category == "Giao Lưu") {
                                     $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-4").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
+                                    //Thêm clearfix 2 post chèn 1 clearfix
+                                    if (dem_temp == 2) {
+                                        $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
+                                        dem_temp = 0;
+                                    }
                                 }
                             } else if (category == "cdtsv") {
                                 if (dt.category == "Chào Đón Tân Sinh Viên") {
                                     $("#posts").append(code_html3.replace(/{id}/g, dt.id).replace("{style}", "cat-2").replace("{0}", dt.category).replace("{1}", dt.title).replace("{link_thumbnail}", dt.thumbnail).replace("{date}", parseDate(dt.createdAt)))
                                     flag = false;
+                                    //Thêm clearfix 2 post chèn 1 clearfix
+                                    if (dem_temp == 2) {
+                                        $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
+                                        dem_temp = 0;
+                                    }
                                 }
                             }
 

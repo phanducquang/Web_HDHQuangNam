@@ -6,52 +6,14 @@
         var code_htmlmostread = '<div class=\"post post-widget\"><a class=\"post-img\" href=\"blog-post.html?id={id}\"><img src=\"{link_thumbnail}\"></a><div class=\"post-body\"><h3 class=\"post-title\"><a href=\"blog-post.html?id={id}\">{1}</a></h3></div></div>'
         var baseUrl = 'https://ducquang.heliohost.org/hdhquangnam-v1/';
 
-
-        // function getUrlParameter(sParam) {
-        //     var sPageURL = window.location.search.substring(1),
-        //         sURLVariables = sPageURL.split('&'),
-        //         sParameterName,
-        //         i;
-
-        //     for (i = 0; i < sURLVariables.length; i++) {
-        //         sParameterName = sURLVariables[i].split('=');
-
-        //         if (sParameterName[0] === sParam) {
-        //             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        //         }
-        //     }
-        // };
-
-        
-        // var category = getUrlParameter('category');
-
-        // function parseDate(date){
-        //     var newYear = date.substr(0,4);
-        //     var newMonth = date.substr(5,2);
-        //     var newDay = date.substr(8,2);
-        //     var newTime = date.substr(11,5)
-        //     return result = newDay + '/'+ newMonth +'/'+ newYear +','+ newTime;
-        // }
-
-        //ar datetime = parseDate('datetime');
-        // $.ajax({
-        //     type: 'GET',
-        //     url: 'http://ducquang.heliohost.org/hdhquangnam-v1/api/posts',
-        //     contentType: '',
-        //     success: function(){
-        //         $(document).ready(function)
-        //     }
-        // })
-
         var req = $.ajax({
             type: 'GET',
-            url: baseUrl+'api/posts/list',
+            url: baseUrl + 'api/posts/listDTO',
             contentType: 'application/json',
             success: function(data2) {
                 $(document).ready(function() {
                     var dem_temp = 0;
                     for (dt2 of data2) {
-
                         if (flag) {
                             if (dt2.category == "Tư Vấn Tuyển Sinh") {
                                 $("#posts").append(code_html2.replace(/{id}/g, dt2.id).replace("{style}", "cat-1").replace("{0}", dt2.category).replace("{1}", dt2.title).replace("{link_thumbnail}", dt2.thumbnail).replace("{date}", parseDate(dt2.createdAt)))
@@ -63,6 +25,7 @@
                                 $("#posts").append(code_html2.replace(/{id}/g, dt2.id).replace("{style}", "cat-2").replace("{0}", dt2.category).replace("{1}", dt2.title).replace("{link_thumbnail}", dt2.thumbnail).replace("{date}", parseDate(dt2.createdAt)))
                             }
                             flag = false;
+                            $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
                         } else {
                             dem_temp++;
                             if (dt2.category == "Tư Vấn Tuyển Sinh") {
@@ -74,10 +37,12 @@
                             } else if (dt2.category == "Chào Đón Tân Sinh Viên") {
                                 $("#posts").append(code_html3.replace(/{id}/g, dt2.id).replace("{style}", "cat-2").replace("{0}", dt2.category).replace("{1}", dt2.title).replace("{link_thumbnail}", dt2.thumbnail).replace("{date}", parseDate(dt2.createdAt)))
                             }
-                            if (dem_temp % 4 == 0) {
+                            if (dem_temp == 2) {
                                 $("#posts").append('<div class="clearfix visible-md visible-lg"></div>')
+                                dem_temp = 0;
                             }
                         }
+
 
                     }
                 })
@@ -88,7 +53,7 @@
         //start featured posts    
         var req = $.ajax({
             type: 'GET',
-            url: baseUrl+'api/posts/featured',
+            url: baseUrl + 'api/posts/featured',
             contentType: 'application/json',
             success: function(data) {
                 $(document).ready(function() {
@@ -138,7 +103,7 @@
         //start most read    
         var req = $.ajax({
             type: 'GET',
-            url: baseUrl+'api/posts/mostread/4',
+            url: baseUrl + 'api/posts/mostread/4',
             contentType: 'application/json',
             success: function(data4) {
                 $(document).ready(function() {
@@ -165,7 +130,7 @@
         //start count posts    
         var req = $.ajax({
             type: 'GET',
-            url: baseUrl+'api/posts/countposts/',
+            url: baseUrl + 'api/posts/countposts/',
             contentType: 'application/json',
             success: function(data) {
                 $(document).ready(function() {
