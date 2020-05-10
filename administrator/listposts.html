@@ -20,26 +20,18 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
 
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
-
-
     <!--     Fonts and icons     -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/animation.css" rel="stylesheet" />
     <script src="ckeditor/ckeditor.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
     <div class="wrapper">
         <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
-
-            <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="../index.html" class="simple-text">
@@ -74,6 +66,12 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                         <a class="navbar-brand header-csbv header-back" style="display: none;"><i class="pe-7s-back"></i></a>
                         <a class="navbar-brand header-csbv" style="display: none;">Chỉnh Sửa Bài Viết</a>
                         <a class="navbar-brand header-dsbv">Danh Sách Bài Viết</a>
@@ -88,8 +86,9 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Thông tin tài khoản</a></li>
                                     <li><a href="#">Thay đổi mật khẩu</a></li>
+                                    <li style="display: none;" id="add_account"><a href="createaccount.html">Thêm tài khoản</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Đăng xuất</a></li>
+                                    <li><a href="#" id="logout">Đăng xuất</a></li>
                                 </ul>
                             </li>
                             <li class="separator hidden-lg hidden-md"></li>
@@ -103,10 +102,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <!-- <div class="header">
-                                    <h4 class="title">Striped Table with Hover</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
-                                </div> -->
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <thead>
@@ -200,207 +195,14 @@
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
-<script>
-    var POST_IN_PAGE = 10;
-    var data_temp = "";
-    var row_table = '<tr id="id_{id}"><td>{id}</td><td>{title}</td><td>{category}</td><td>{featured}</td><td>{views}</td></tr>';
-    var paging = '{"pagination":[]}';
-    //tạo biến dem để xác định danh sách data chia thành bao nhiêu page
-    var dem = 0;
-    var id_update = '';
-    var obj_update = '';
-    $(document).ready(function() {
-        CKEDITOR.replace('editor');
-        var user = {
-            "username": "ducquang"
-        }
-        $("#user-login").append(user.username + '<b class="caret"></b>');
-        //Hàm xác định dòng vừa click
-        $('#list_posts').click(function(event) {
-            id_update = $(event.target).closest("tr")[0].id.replace("id_", "");
-            for (let index = 0; index < data_temp.length; index++) {
-                if (data_temp[index] != null && data_temp[index] != undefined) {
-                    if (data_temp[index].id == id_update) {
-                        obj_update = data_temp[index];
-                        break;
-                    }
-                }
-            }
-            console.log(id_update);
-            $('.header-dsbv').hide();
-            $('.header-csbv').show();
-            $('.view-data').hide();
-            $('.update-data').show();
-            CKEDITOR.instances.editor.setData(obj_update.content);
-            $('#input_tieude').val(obj_update.title);
-            $('#link_thumbnail').val(obj_update.thumbnail);
-            if (obj_update.featured) {
-                $('#featured').prop('checked', true);
-            } else {
-                $('#featured').prop('checked', false);
-            }
-            $("div.select-option select").val(obj_update.category);
-        });
-
-        $('.header-back').click(function() {
-            pagination(data_temp);
-            loadPage(1);
-            $('.header-csbv').hide();
-            $('.header-dsbv').show();
-            $('.view-data').show();
-            $('.update-data').hide();
-        });
-
-        //Lấy danh sách bài viết
-        $.ajax({
-            type: 'GET',
-            url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/list',
-            contentType: 'application/json',
-            success: function(data) {
-                data_temp = data;
-                pagination(data);
-                var obj = JSON.parse(paging);
-                obj.pagination[0].forEach(row => {
-                    $("#list_posts").append(row_table.replace(/{id}/g, row.id).replace("{title}", row.title).replace("{category}", row.category).replace("{featured}", (row.featured == true) ? "Có" : "Không").replace("{views}", row.views));
-                });
-                for (let index = 0; index < dem; index++) {
-                    $("#pagination").append('<li id="page_{page}" onclick="loadPage({page})"><a>{page}</a></li>'.replace(/{page}/g, index + 1));
-                    $("#page_1").addClass("active");
-                }
-            }
-        });
-
-        //Cập nhật bài viết
-        $("#update_post").click(function() {
-            if ($("#chude").val() != "" && $("#tieude").val() != "" && $("#input_tieude").val() != "" && $("#link_thumbnail").val() != "" && CKEDITOR.instances.editor.getData() != "") {
-                obj_update.title = $("#input_tieude").val();
-                obj_update.content = CKEDITOR.instances.editor.getData();
-                obj_update.category = $("#chude").val();
-                obj_update.thumbnail = $("#link_thumbnail").val();
-                obj_update.featured = ($("#featured").val() == true) ? true : false;
-                var flag = true;
-                $("#loading-add").show();
-                var req = $.ajax({
-                        type: 'PUT',
-                        url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/',
-                        data: JSON.stringify(obj_update),
-                        contentType: 'application/json',
-                        success: function(data) {
-                            $("#loading-add").hide();
-                            alert('Đã cập nhật bài viết "{title}" thành công.'.replace("{title}", data.title));
-                            flag = false;
-                        }
-                    })
-                    //set timeout for request
-                setTimeout(function() {
-                    if (flag) {
-                        $("#loading-add").hide();
-                        req.abort();
-                        alert("Cập nhật bài viết lỗi, vui lòng thử lại sau.");
-                    }
-                }, 10000);
-            }
-        });
-
-        //Xoá bài viết
-        $("#delete_post").click(function() {
-            var r = confirm("Bạn chắc chắn muốn xoá bài viết!");
-            if (r == true) {
-                $("#loading-add").show();
-                var req = $.ajax({
-                        type: 'DELETE',
-                        url: 'https://ducquang.heliohost.org/hdhquangnam-v1/api/posts/' + obj_update.id,
-                        contentType: 'application/json',
-                        success: function(data) {
-                            $("#loading-add").hide();
-                            for (let index = 0; index < data_temp.length; index++) {
-                                if (data_temp[index] != null && data_temp[index] != undefined) {
-                                    if (data_temp[index].id == id_update) {
-                                        data_temp.splice(index, 1);
-                                        pagination(data_temp);
-                                        break;
-                                    }
-                                }
-                            }
-                            alert("Đã xoá thành công.");
-                            flag = false;
-                            $('.header-csbv').hide();
-                            $('.header-dsbv').show();
-                            $('.view-data').show();
-                            $('.update-data').hide();
-                            loadPage(1);
-                        }
-                    })
-                    //set timeout for request
-                setTimeout(function() {
-                    if (flag) {
-                        $("#loading-add").hide();
-                        req.abort();
-                        alert("Cập nhật bài viết lỗi, vui lòng thử lại sau.");
-                    }
-                }, 10000);
-            } else {
-                //
-            }
-        });
-    });
-
-    function loadPage(pageNumber) {
-        var obj = JSON.parse(paging);
-        //Xoá nội dung trong tag có id list_posts
-        $("#list_posts").empty();
-        $('.pagination').empty();
-        for (let index = 0; index < dem; index++) {
-            $("#pagination").append('<li id="page_{page}" onclick="loadPage({page})"><a>{page}</a></li>'.replace(/{page}/g, index + 1));
-        }
-        //Thêm class vào li hiện tại
-        $('#page_{0}'.replace("{0}", pageNumber)).addClass('active');
-        obj.pagination[pageNumber - 1].forEach(row => {
-            if (row != null && row != undefined) {
-                $("#list_posts").append(row_table.replace(/{id}/g, row.id).replace("{title}", row.title).replace("{category}", row.category).replace("{featured}", (row.featured == true) ? "Có" : "Không").replace("{views}", row.views));
-            }
-        });
-    };
-
-    function pagination(data) {
-        paging = '{"pagination":[]}';
-        dem = 0;
-        var temp = [];
-        //Biến xác định số bài trong 1 page
-        var amount_post = 0;
-        for (let i = 0; i < data.length; i++) {
-            //thêm dữ liệu vào mảng tạm
-            temp.push(data[i]);
-            amount_post++;
-            //Kiểm tra xem số bài nếu bằng 5 thì thêm mảng tạm vào biến paging
-            //Hoặc chiều dài mảng data đã bằng i+1 hay chưa (nếu bằng có nghĩa là mảng đã hết phần tử mới, Thêm mảng tạm vào biến paging)
-            if ((amount_post == POST_IN_PAGE) || (data.length == (i + 1))) {
-                //chuyển sang JSON
-                var obj = JSON.parse(paging);
-                obj["pagination"].push(temp);
-                dem++;
-                //khởi tạo lại biếm temp mới
-                var temp = [];
-                //Chuyển sang String
-                paging = JSON.stringify(obj);
-                amount_post = 0;
-            }
-        }
-    };
-</script>
+<script src="assets/js/listposts.js"></script>
 
 </html>

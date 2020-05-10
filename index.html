@@ -33,7 +33,10 @@
 </head>
 
 <body>
-
+    <div class="lds-ripple" id="spinner_loading">
+        <div></div>
+        <div></div>
+    </div>
     <!-- Header -->
     <header id="header">
         <!-- Nav -->
@@ -116,6 +119,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="row" id="posts"></div>
+                    <div class="col-md-12">
+                        <div class="section-row">
+                            <button class="primary-button center-block">Tải Thêm</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <!-- post widget -->
@@ -147,11 +155,6 @@
                         </div>
                     </div>
                     <!-- /catagories -->
-                </div>
-                <div class="col-md-12">
-                    <div class="section-row">
-                        <button class="primary-button center-block">Tải Thêm</button>
-                    </div>
                 </div>
             </div>
             <!-- /row -->
